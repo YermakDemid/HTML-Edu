@@ -11,8 +11,6 @@ $fonts: (
   @if str-index($font-file, "italic") {
     $font-style: italic;
   }
-
-  @include font($font-file, $font-weight, $font-style, $font-name);
 }
 
 //@include font('open-sans-regular', 400, normal, OpenSans);

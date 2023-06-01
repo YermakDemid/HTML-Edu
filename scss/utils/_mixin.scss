@@ -58,9 +58,7 @@
 
 @mixin grid-area($value) {
   grid-area: $value;
-  @supports not (display: grid) {
-    -ms-grid-cell: $value;
-  }
+  -ms-grid-cell: $value;
 }
 
 @mixin justify-content-space-between {

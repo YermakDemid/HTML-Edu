@@ -1,4 +1,8 @@
-%h1-title {
+@mixin h1-title {
   font-size: 100px;
   line-height: 1.2;
+}
+
+@mixin h1-title-mob {
+  font-size: 20px;
 }

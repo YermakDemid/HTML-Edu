@@ -1,8 +1,12 @@
 @import "utils/typografy";
 @import "layouts/hero";
 
+//.block__elem--mod
 .home {
   .hero {
-    padding: 100px 0px;
+    &__title {
+      text-align: left;
+      margin: 0px;
+    }
   }
 }
