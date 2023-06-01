@@ -1,0 +1,8 @@
+h1, .h1-title {
+  @extend %h1-title;
+}
+
+h2, .h2-title {
+  font-size: 80px;
+  line-height: 1.3;
+}

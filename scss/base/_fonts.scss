@@ -1,0 +1,18 @@
+$fonts: (
+        "OpenSans-regular": 400,
+        "OpenSans-bold": 700,
+        "Roboto-regular": 400,
+        "Roboto-bold": 700
+);
+
+@each $font-file, $font-weight in $fonts {
+  $font-style: normal;
+  $font-name: str-slice($font-file, 1, str-index($font-file, "-") - 1);
+  @if str-index($font-file, "italic") {
+    $font-style: italic;
+  }
+
+  @include font($font-file, $font-weight, $font-style, $font-name);
+}
+
+//@include font('open-sans-regular', 400, normal, OpenSans);

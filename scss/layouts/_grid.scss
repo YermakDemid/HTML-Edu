@@ -1,0 +1,12 @@
+.grid {
+  --gap: 20px;
+  @include display-grid;
+  @include grid-template-columns-repeat(1fr, 5, 20px);
+  @include grid-template-rows-repeat(300px, 2, 20px);
+  @include justify-content-space-between;
+
+  &__item {
+    background: red;
+    @include grid-column($end: 2, $span: true);
+  }
+}

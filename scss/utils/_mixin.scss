@@ -1,0 +1,123 @@
+@mixin display-grid {
+  display: -ms-grid;
+  display: grid;
+}
+
+@mixin grid-template-columns-repeat($width, $count: 1, $gap: 0px) {
+  $gridValue: null;
+  @if ($count > 1) {
+    @for $i from 1 through ($count - 1) {
+      $gridValue: $width $gap;
+    }
+  }
+  -ms-grid-columns: $gridValue $width;
+  grid-template-columns: repeat(#{$count}, #{$width});
+  grid-gap: $gap;
+}
+
+@mixin grid-template-rows-repeat($width, $count: 1, $gap: 0px) {
+  $gridValue: null;
+  @if ($count > 1) {
+    @for $i from 1 through ($count - 1) {
+      $gridValue: $width $gap;
+    }
+  }
+  -ms-grid-rows: $gridValue $width;
+  grid-template-rows: repeat(#{$count}, #{$width});
+  grid-gap: $gap;
+}
+
+@mixin grid-template-columns($columns) {
+  grid-template-columns: $columns;
+  -ms-grid-columns: $columns;
+}
+
+@mixin grid-column($start: null, $end, $span: null) {
+  @if $span == null {
+    -ms-grid-column: $start;
+  }
+  -ms-grid-column-span: $end - $start;
+  @if $span == null {
+    grid-column: #{$start} / #{$end};
+  } @else {
+    grid-column: span #{$end};
+  }
+}
+
+@mixin grid-row($start: null, $end, $span: null) {
+  @if $span == null {
+    -ms-grid-row: $start;
+  }
+  -ms-grid-row-span: $end - $start;
+  @if $span == null {
+    grid-row: #{$start} / #{$end};
+  } @else {
+    grid-row: span #{$end};
+  }
+}
+
+@mixin grid-area($value) {
+  grid-area: $value;
+  @supports not (display: grid) {
+    -ms-grid-cell: $value;
+  }
+}
+
+@mixin justify-content-space-between {
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+@mixin justify-content-flex-start {
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+}
+
+@mixin align-items-center {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+@mixin align-items-flex-end {
+  -webkit-box-align: end;
+  -ms-flex-align: end;
+  align-items: flex-end;
+}
+
+@mixin align-items-stretch {
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+}
+
+@mixin align-items-flex-start {
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+}
+
+@mixin justify-content-flex-end {
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+}
+
+@mixin justify-content-center {
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+@mixin font($fileName, $weight, $style, $fontName, $folderName: $fontName) {
+  @font-face {
+    font-family: #{$fontName};
+    font-display: swap;
+    src: url("../fonts/#{$folderName}/#{$fileName}.woff") format("woff"),
+         url("../fonts/#{$folderName}/#{$fileName}.woff2") format("woff2");
+    font-weight: #{$weight};
+    font-style: #{$style};
+  }
+}

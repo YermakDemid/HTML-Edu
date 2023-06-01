@@ -1,0 +1,21 @@
+.grid {
+  --gap: 20px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 20px 1fr;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 20px;
+  -ms-grid-rows: 300px 20px 300px;
+  grid-template-rows: repeat(2, 300px);
+  grid-gap: 20px;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+.grid__item {
+  background: red;
+  -ms-grid-column-span: 2-;
+  grid-column: span 2;
+}
+
+/*# sourceMappingURL=grid-page.css.map */
